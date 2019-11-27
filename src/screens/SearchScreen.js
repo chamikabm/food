@@ -16,6 +16,10 @@ const SearchScreen = () => {
     })
   };
 
+  if(!results.length) {
+    return null
+  }
+
   /**
    * In order to fix the scroll issue with item overflow, we can use empty tags as follows
    * without the View component with the `flex:1` style property.
@@ -32,24 +36,20 @@ const SearchScreen = () => {
               <Text>{errorMessage}</Text>
               : null
         }
-        {
-          results.length > 0 ?
-              <ScrollView>
-                <ResultsList
-                    title={'Cost Effective'}
-                    results={filterResultsByPrice('$')}
-                />
-                <ResultsList
-                    title={'Bit Pricier'}
-                    results={filterResultsByPrice('$$')}
-                />
-                <ResultsList
-                    title={'Big Spender'}
-                    results={filterResultsByPrice('$$$')}
-                />
-              </ScrollView>
-              : null
-        }
+        <ScrollView>
+          <ResultsList
+              title={'Cost Effective'}
+              results={filterResultsByPrice('$')}
+          />
+          <ResultsList
+              title={'Bit Pricier'}
+              results={filterResultsByPrice('$$')}
+          />
+          <ResultsList
+              title={'Big Spender'}
+              results={filterResultsByPrice('$$$')}
+          />
+        </ScrollView>
       </>
   );
 };
