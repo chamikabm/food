@@ -17,7 +17,7 @@ export default () => {
       });
       setResults(response.data.businesses);
     } catch (err) {
-      console.log(`Error occurred while fetching restaurants. Error : ${err}`);
+      console.log(`Error occurred while fetching restaurants. : ${err}`);
       setErrorMessage('Something went wrong!');
     }
   };
